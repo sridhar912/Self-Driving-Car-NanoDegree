@@ -3,8 +3,7 @@
 This is one of the projects in [Udacity Self Driving Car NanoDegree Course](https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013). The project uses a simulator build by Udacity to train and test autonomous driving of the car around the circuit using Deep Learning technique. The goal of the project is too predict the steering angle of the car, given images. It is similar to the [challenge #2](https://medium.com/udacity/challenge-2-using-deep-learning-to-predict-steering-angles-f42004a36ff3#.b3l2j4uho) organized by Udacity. Rather than using real world recording, this project uses a simulator to record the data and then later train them using [Keras Deep Learning framework](https://keras.io/). This project was inspired by the work done by Nvidia. You may watch [this incredible video](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) from Nvidia which highlights their efforts of teaching a car how to drive using only cameras and deep learning. Their DAVE-2 deep learning system is capable of driving in many different weather conditions, avoiding obstacles, and even going off-road!
 
 The following animation shows the output of this projects.
-Track 1                       |  Track 2                      |
-:----------------------------:|:------------------------------:
+
 ![Track 1](sample/track1.gif) | ![Track 2](sample/track2.gif) |
 
 
@@ -13,7 +12,7 @@ Track 1                       |  Track 2                      |
 A simulator based on the Unity engine that uses real game physics to create a close approximation to real driving. The simulator looks likes follows
 ![Simulator](sample/simulator.png)
 
-##### Training Mode
+#### Training Mode
 In order to start collecting training data, you'll need to do the following:
  - Enter Training Mode in the simulator.
  - Start driving the car to get a feel for the controls.
@@ -27,7 +26,7 @@ If everything went correctly, you should see the following in the directory you 
 
 ![An example of the contents of driving_log.csv](sample/contents.png)
 
-##### Training Your Network
+#### Training Your Network
 Now that you have training data, it’s time to build and train your network!
 Use Keras to train a network to do the following:
  - Take in an image from the center camera of the car. This is the input to your neural network.
@@ -52,8 +51,8 @@ The following list contains description of the files available in this github re
  - sample - Folder containing images used for explanation
  - viz.py - The script to save the model architecture as a image
  - helper.ipynb - The script to analyze and save data augmentations
- 
- ### Data
+
+### Data
 The data from the simulator has three images captured using left, center and right camera. Sample images from the simulator are shown below. 
 
 Left Image                    |  Center Image                  |  Right Image                   |
