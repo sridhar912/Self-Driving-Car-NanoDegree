@@ -119,7 +119,7 @@ In order to check whether the model works for all the data independent of who is
 
 ### Model:
 Since the files are huge, the model can be downloaded from the following link
- - [model.h5](https://drive.google.com/open?id=0B0CHhxRP_jmINVlva1gyVHlEUmM)
+ - [model.h5](https://drive.google.com/open?id=0B0CHhxRP_jmIV3ZXNHVaOEQtazg)
  
 ## Reference
 1. [Creating readme Markdown](https://en.support.wordpress.com/markdown-quick-reference/)
