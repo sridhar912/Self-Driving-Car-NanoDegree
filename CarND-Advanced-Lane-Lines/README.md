@@ -43,28 +43,28 @@ Assuming that the chessboard is fixed on the (x, y) plane at z=0, such that the 
 ```dst = cv2.undistort(img, mtx, dist, None, mtx)```
 
 The sample undistorted input image is shown below
-![UndistoredImage][output/calib.png]
+![UndistoredImage](output/calib.png)
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 To demonstrate this step, the distortion correction is applied to one of the test images and output is shown below.
-![DistortionCorrrection][output/sample_dist.jpeg]
+![DistortionCorrrection](output/sample_dist.jpeg)
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 First step in detecting the lane lines is to eliminated unnecessary image content from the image which might not be lanes. In order to acheive this various combination of color information is used. Rather than targeting all the lanes at one go, seperate functionality was used to detect white and yellow lanes seperately. In this way, the architecture can be easily changed, if any other lane with different color like blue needs to be detected. The pipeline also include condition checking, where the image is classified as normal, dark or bright. This is done to enhance the image if it found to be either bright or dark. In this module when using sobel and gradient based detection, almost all the edge condition where captures like shadow and visible road split etc. The information was bit tedious to filter llter. So this setup was used as the back-up to find edges, if the image is either dark or brighter. For normal images, color based detection were used. After experimenting different color space like RGB, HSL, HSV, YCbCr and LAB was found to be useful in detecting both white and yellow lane.
 The implementation of this module can be seen in the file `LaneDection.py`. The function `extract_lane_information()` was used in normal condition where as function `extract_lane_information_diff_condition()` was used in non-normal cases. The pipeline explained is shown below.
 Overall Pipeline:
-![overall Pipeline][output/flow.png]
+![overall Pipeline](output/flow.png)
 Normal Condtion Processing:
-![Normal Processing][output/normal_processing.png]
+![Normal Processing](output/normal_processing.png)
 Non-normal Conditioni Processing:
-![Non-Normal Processing][output/non_normal_precessing.png]
+![Non-Normal Processing](output/non_normal_precessing.png)
 
 The sample threshold binary images are shown below.
-![Figure1][output/figure_1.jpeg]
-![Figure2][output/figure_2.jpeg]
-![Figure3][output/figure_3.jpeg]
+![Figure1](output/figure_1.jpeg)
+![Figure2](output/figure_2.jpeg)
+![Figure3](output/figure_3.jpeg)
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -81,19 +81,19 @@ dst_points = np.float32([[440, 720],
 ```
 In order to check the correctness of the perspective transform, the `src_points` and `dst_points` points were drawn onto a test image and its warped image is verified to see if the lines appear parallel in the warped image.
 
-![WrapedImage][output/presp.jpeg]
+![WrapedImage](output/presp.jpeg)
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Once the thresholded binary image is calculated, next step is to identify the exact lane points. In order to identify location of the lanes, image `histogram` is used. The image is first splitted into two region. One for left lane and one for right lane. Then small windows of size is move from bottom to top on left and right image seperately. Based on max histogram out, pixel location is calculated. The pixel location across the windows are saved in an array and then `polyfit` is used to fit the pixel locations. This is implemented in `extract_lane_coordinates()`. This procedure of searching entire image is done for fixed number of frames given by variable `frames_confidence` Once the detection confidence is reached, then rather than searching entire image region, a small region around the detected line is used for finding the pixel location `get_restricted_search()`. The code implementation of this module can be seen in the file `LaneInformation.py`. The following image demostrates this functionality. 
 GrayImage:
-![GrayImage][output/fit1.jpeg]
+![GrayImage](output/fit1.jpeg)
 LanePoints:
-![LanePoints][output/fit2.jpeg]
+![LanePoints](output/fit2.jpeg)
 LaneFitting:
-![LaneFitting][output/fit3.jpeg]
+![LaneFitting](output/fit3.jpeg]
 Restricted Search Area (Within blue region):
-![Restricted][output/fit4.jpeg]
+![Restricted](output/fit4.jpeg)
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 The radius of curvature (awesome tutorial here) at any point x of the function x=f(y) is given as follows:
@@ -114,7 +114,7 @@ The position of the vehicle is identified by taking a point on the left and righ
 
 For display an image with lane area overlaid, the function named `overlay_lane` is used which can be found in the notebook `AdvanceLaneFinding.ipynb` in the cell number #10. The sample output after the overlay is shown below.
 
-![Result][output/result.jpeg]
+![Result](output/result.jpeg)
 
 ---
 
