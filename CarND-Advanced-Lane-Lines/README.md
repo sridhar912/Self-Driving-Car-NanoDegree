@@ -91,7 +91,7 @@ GrayImage:
 LanePoints:
 ![LanePoints](output/fit2.jpeg)
 LaneFitting:
-![LaneFitting](output/fit3.jpeg]
+![LaneFitting](output/fit3.jpeg)
 Restricted Search Area (Within blue region):
 ![Restricted](output/fit4.jpeg)
 
