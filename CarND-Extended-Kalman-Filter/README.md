@@ -3,7 +3,7 @@ RADAR and LIDAR Fusion using Extended Kalman Filter in C++. This project utilize
 ![DataFlow](Result/AlgoFlow.png)
 
 ### Build Instructions And Usage
-1. Move into `build` directory and Compile using: `cmake . && make` 
+1. Create a `build` directory and Compile using: `cmake .. && make` 
    * On windows, you may need to run: `cmake .. -G "Unix Makefiles" && make`
 2. Run using: `./ExtendedKF path/to/input.txt path/to/output.txt Mode (Radar+Lidar [0], Lidar [1], Radar [2])`. You can find some sample inputs in 'data/'.
     - eg. `./ExtendedKF ../data/sample-laser-radar-measurement-data-1.txt output.txt 0` - Use both radar and lidar data
